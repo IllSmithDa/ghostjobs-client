@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import { loginUser } from '../redux/features/AuthSlice';
 import { axiosFetch } from '../Axios/axios';
 
-export default function Login({setLoader}:{ setLoader:(state:'login'|'register'|'loading') => void}) {
+export default function Login({setLoader}:{ setLoader:(state: string) => void}) {
   const [requestErr, setRequestErr] = useState<string>();
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
