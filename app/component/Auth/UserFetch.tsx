@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../redux/features/AuthSlice";
 import Loader from "../Loader/Loader";
+import { axiosFetch } from "../Axios/axios";
 
 
 export default function UserFetch({
@@ -14,7 +15,7 @@ export default function UserFetch({
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch();
   useEffect(() => {
-    axios.get('http://localhost:5000/api/users/get-user-session', {
+    axiosFetch.get('/api/users/get-user-session', {
       withCredentials: true
     })
       .then((res) => {

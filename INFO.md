@@ -21,3 +21,6 @@ https://stackoverflow.com/questions/57581149/react-bootstrap-formik-show-errors-
 
 # Hard delete git and restart
 https://stackoverflow.com/questions/3212459/is-there-a-command-to-undo-git-init
+
+
+// https://65224a7a94794e0008bec647--venerable-begonia-88eaeb.netlify.app/
