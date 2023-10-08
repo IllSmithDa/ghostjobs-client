@@ -7,10 +7,10 @@ import Loader from '../Loader/Loader';
 
 export default function ComponentModal() {
   const [isLoading, setIsLoading] = useState(false);
-  const [loadingState, setLoadingState] = useState<'login' | 'register' | 'loading'>('login')
+  const [loadingState, setLoadingState] = useState<string>('login')
   
   
-  const setLoader = (state: 'login' | 'register' | 'loading') => {
+  const setLoader = (state: string) => {
     setLoadingState(state);
   }
 
