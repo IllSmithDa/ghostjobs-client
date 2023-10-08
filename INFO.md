@@ -18,3 +18,6 @@ https://stackoverflow.com/questions/57581149/react-bootstrap-formik-show-errors-
 2. https://stackoverflow.com/questions/41040269/syntax-error-when-test-component-with-sass-file-imported
 
 3. https://itecnote.com/tecnote/reactjs-jest-could-not-locate-module-filename-css-mapped-as-identity-obj-proxy/
+
+# Hard delete git and restart
+https://stackoverflow.com/questions/3212459/is-there-a-command-to-undo-git-init
