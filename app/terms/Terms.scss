@@ -1,0 +1,14 @@
+@import '../styles/mixins';
+@import '../styles/variables';
+.terms-page{
+  background-color: $dark-night;
+  @include defaultDimensions;
+  p {
+    font-size: $default-font-size;
+  }
+  a,
+  a::before,
+  a::after {
+    color: $color-white
+  }
+}

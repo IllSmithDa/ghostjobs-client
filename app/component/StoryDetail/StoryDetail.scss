@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+@import '../../styles/components';
+
+.story-container {
+  background-color: $dark-night;
+  padding: 2rem;
+  border-radius: 5px;
+  box-sizing: border-box;
+  h2 {
+    font-size: $default-font-size;
+  }
+  section {
+    @include flexRow;
+    h1 {
+      font-size: $article-title;
+      margin-top: 0;
+    }
+  }
+}
+
+.story-content {
+  font-size: $default-font-size;
+  // reads new line characters in paragraphs
+  // https://stackoverflow.com/questions/42547885/how-to-recognize-new-line-character-n-in-html
+  white-space: pre-wrap;
+}

@@ -1,0 +1,38 @@
+@import '../styles/mixins';
+@import '../styles/variables';
+.profile-page {
+  @include defaultDimensions;
+  margin-top: 1rem;
+  .selected-tab {
+    // border-top: 2px solid $color-air;
+    // border-left: 2px solid $color-air;
+    // border-right: 2px solid $color-air;
+    border-bottom: 2px solid $color-air;
+    background-color: $dark-night;
+  }
+  
+}
+.profile-header {
+  @include defaultDimensions;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 2rem;
+}
+.loader-container {
+  @include flexCenter;
+  min-height: 75vh;
+  background-color: $dark-night;
+}
+
+.menu-tabs {
+  background-color: inherit;
+  color: $color-air;
+  font-size: 1.8rem;
+  border: none;
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  &:hover {
+    background-color: $dark-night;
+    border-bottom: 2px solid $dark-night;
+  }
+}

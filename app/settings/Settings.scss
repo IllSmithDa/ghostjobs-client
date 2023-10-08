@@ -1,0 +1,7 @@
+@import '../styles/components';
+@import '../styles/mixins';
+@import '../styles/variables';
+.settings-container {
+  @include defaultDimensions;
+  
+}

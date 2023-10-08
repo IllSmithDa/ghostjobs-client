@@ -1,0 +1,10 @@
+@import "../../styles/mixins";
+
+.story-page-container {
+  @include defaultDimensions;
+  margin-top: 2rem;
+}
+.large-loader {
+  @include flexCenter;
+  min-height: 75vh;
+}

@@ -1,0 +1,448 @@
+@import "./mixins";
+@import "./variables";
+
+
+
+.link-btn {
+  height: 3.2rem;
+  width: 2rem;
+  font-size: 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  @include flexCenter;
+  margin-top: 10px;
+  background-color: #EEE;
+  border: none;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: $light-shadow;
+  outline-color: $color-white;
+  color: $color-black;
+  &:before,
+  &:visited {
+    background-color: #EEE;
+    text-decoration: none;
+    outline-color: $color-white;
+    color: $color-black;
+  } 
+  &-inv {
+    width: max-content;
+    padding: 0;
+    margin: 0;
+    font-size: 1.3rem;
+    background-color: inherit;
+    border: none;
+    color: $color-white;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &-medium {
+    width: 20rem;
+  }
+  &-small {
+    font-size:  1.1rem;
+    line-height: 1.4rem;
+    padding: 5px;
+    width: 8rem;
+  }
+  &-grey {
+    background-color: #CCC;
+    color:$color-black;
+    &:hover {
+      background-color: $color-white;
+      color:$color-black;
+    }
+  }
+  &-dark-grey {
+    background-color: $dark-grey !important;
+    color: $color-white !important;
+    &:hover,
+    &:active {
+      background-color: $medium-grey  !important;
+      color: $color-white  !important;
+    }
+  }
+  &-night {
+    background-color: $dark-night !important;
+    color: $color-white !important;
+    &:hover {
+      background-color: $dark-grey !important;
+      color: $color-white !important;
+    }
+  }
+  &-black {
+    background-color: $color-black !important;
+    color: $color-white !important;
+    box-shadow: $light-shadow;
+    &:hover {
+      background-color: $color-black;
+      color: $color-white;
+      box-shadow: $default-shadow;
+    }
+    &:active{
+      box-shadow: $light-shadow;
+    }
+  }
+  &:hover {
+    transform: translateY(-1px);
+    background-color: $color-white;
+  }
+  &:active {
+    transform: translateY(1px);
+    background-color: $color-white;
+    color: $color-black;
+  }
+}
+
+
+.std-button {
+  width: 12rem;
+  height: 3.2rem;
+  margin-top: 1rem;
+  background-color: #DEDEDE;
+  border: none;
+  padding: 1rem;
+  border-radius: 2.5rem; 
+  box-shadow: $light-shadow;
+  outline-color: $color-white;
+  cursor: pointer;
+  &-medium {
+    width: 175px;
+  }
+  &-long {
+    width: 100%;
+  }
+
+  &-right {
+    align-self: flex-end;
+    margin-left: 1rem;
+    float: right;
+  }
+  &:hover {
+    background-color: $color-white;
+    transform: translateY(-1px);
+    box-shadow: $default-shadow;
+  }
+  &:active {
+    transform: translateY(1px);
+    box-shadow: $default-shadow;
+  }
+  &-black {
+    background-color: $color-black;
+    color: $color-white;
+    &:hover {
+      background-color: $dark-night;
+    }
+  }
+  &-white {
+    width: 120px;
+    background-color: $color-air;
+    border: none;
+    padding: 1rem 1.2rem;
+    cursor: pointer;    
+    outline-color: $dark-night;
+    &:hover {
+      background-color: $color-white;
+    }
+  }
+  &-dark-grey {
+    background-color: $dark-grey !important;
+    color: $color-white !important;
+    &:hover,
+    &:active {
+      background-color: $medium-grey  !important;
+      color: $color-white  !important;
+    }
+  }
+  &-night {
+    background-color: $dark-night !important;
+    color: $color-white !important;
+    &:hover {
+      background-color: $dark-grey !important;
+      color: $color-white !important;
+    }
+  }   
+  &-blue {
+    color: $baby-blue;
+  }
+  &-med {
+    width:150px;
+  }
+  &-brand {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-self: center;
+  }
+}
+.round-btn {
+  height: 3rem;
+  width: 3rem;
+  font-size: 2rem;
+  border-radius: 50px;
+  border: none; 
+  align-self:flex-end;
+  cursor: pointer;            
+  &-white {
+    background-color: beige;
+    color: $color-black;
+    &:hover {
+      background-color: $color-white;
+    }
+  }
+  &-right {
+    float: right;
+  }
+  &-inherit {
+    background-color: inherit;
+    color: $color-white
+  }
+}
+
+.form-container {
+  @include flexHorizontal;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 300px;
+  padding: 2rem;
+  box-sizing: border-box;
+  h1 {
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+  }
+  p{
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  h2 {
+    text-align: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: auto;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  input, 
+  textarea {
+    padding: 1rem;
+    font-size: $default-font-size;
+    outline-color: blue;
+  }
+  textarea {
+    height: 200px;
+  }
+  label {
+    color: $color-white;
+    font-weight: 500;
+    font-size: 1.4rem;
+    padding: 0;
+    margin-top: 5px;
+  }
+  @media (max-width: 500px) {
+    width: 90%;
+  }
+}
+
+.inv-button {
+  width: max-content;
+  padding: 0;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  background-color: inherit;
+  border: none;
+  color: $color-white;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.standard-icon {
+  margin-top: 13px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  height: 26px;
+  color: $color-white;
+  cursor: pointer;
+  &:active {
+    outline-color: $color-white;
+  }
+  &-bars {
+    z-index: 2;
+  }
+}
+
+.general-modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Black w/ opacity */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  justify-content: center;
+  flex-direction: column;
+}
+
+.drop-down-menu {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  background-color: #1A1A1A;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+  a,
+  button {
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #1A1A1A;
+    border: none;
+    width: 100%;
+    text-align: center;
+    color: $color-white;
+    padding: 2rem;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 500;
+    display: block;
+    &:hover {
+      background-color: #333;
+      text-decoration: underline;
+    }
+  }
+}
+.item-card {
+  background-color: #222;
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  h3 {
+    margin: 0;
+  }
+  section {
+    @include flexRow;
+    a {
+      margin: 0;
+    }
+  }
+}
+.story-tag {
+  background-color: $dark-grey;
+  line-height: $small-font-size;
+  padding: 1rem;
+  max-width: fit-content;
+  margin: 0;
+  max-height: 34px;
+  box-sizing: border-box;
+}
+.std-icon {
+  margin-top: 5px;
+  height: 24px;
+  padding-right: 5px;
+  padding-left: 5px;
+  color: $color-white;
+  cursor: pointer;
+}
+.silent-btn {
+  font-size: 2rem;
+  max-height: 52px;
+  box-sizing: border-box;
+  margin: 0 1rem;
+  padding: 1px;
+  background-color: #111;
+  border-color: #111;
+  border: none;
+  color: $color-white;
+  cursor: pointer;
+  &:hover,
+  &:active {
+    text-decoration-line: underline;
+  }
+}
+
+.ellipsis-section {
+  @include flexRow;
+}
+.ellipsis-btn {
+  background-color: $dark-night;
+  height: min-content;
+  border:none;
+  color: $color-white;
+  box-sizing: border-box;
+  margin: 0;
+  cursor:pointer;
+  font-size: 2rem;
+  border-radius: 25px;
+  height: 3rem;
+  padding-top: 3px;
+
+  &:active,
+  &:before,
+  &:after,
+  &:hover {
+    border-radius: 25px;
+    background-color: #333;
+  }
+}
+.hidden-btn {
+  background-color: inherit;
+  border: 0;
+
+}
+.silent-modal {
+  position: fixed; /* Stay in place */
+  z-index: 3; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  justify-content: center;
+  flex-direction: column;
+}
+
+.drop-down-btn {
+  box-sizing: border-box;
+  border-radius: 2px;
+  cursor: pointer;
+  color: $color-white;
+  border: none;
+  width: 120px;
+  text-align: center;
+  padding: 1rem;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 600;
+
+  background-color: $dark-grey;
+  &:hover,
+  &:active {
+    background-color: $medium-grey;
+    
+  }
+  &:hover {
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}
+h1, h2, h3, h4, p, button, a {
+  font-family: Montserrat
+  
+}

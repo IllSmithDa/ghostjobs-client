@@ -1,0 +1,219 @@
+import React, { useEffect, useState } from 'react'
+import './Replies.scss';
+import PostReply from '../PostReply/PostReply';
+import LikeDislike from '../LikeDislike/LikeDisLike';
+import { CommentLike } from '../Types';
+import DropDownAll from '../DropDownAll/DropDownAll';
+import ReportForm from '../ReportForm/ReportForm';
+
+interface Reply {
+  id: string,
+  commentIdRef: string,
+  username: string,
+  userImage: string,
+  score: number,
+  replyText: string,
+  storyTitle: string,
+  storyId: string,
+}
+
+export default function Replies(
+  {
+    replies,
+    storyId,
+    storyTitle,
+    commentId,
+    username,
+    setRepliesoff,
+    commentReactions,
+  }: 
+  {
+  replies: Reply[],
+  storyId: string,
+  storyTitle: string,
+  commentId: string,
+  username: string,
+  setRepliesoff: boolean,
+  commentReactions: CommentLike []
+}) {
+  const [allReplies, setAllReplies] = useState(replies);
+  const [replyCount, setReplyCount] = useState(allReplies.length);
+  const [mode, setMode] = useState<'standard' | 'clicked'>('standard')
+  const [shownReplies, setShownReplies] = useState<Reply []>([]);
+  const [currentCount, setCurrentCount] = useState(0);
+  const [endReached, setEndReached] = useState(false);
+  const [postReply, setPostReply] = useState(false);
+  const [reportFormOn, setReportFormOn] = useState('');
+  const offset = 10;
+
+  const handleShowReplies = () => {
+    const tempArr = allReplies.slice(currentCount, currentCount + offset);
+    setShownReplies([...shownReplies, ...tempArr]);
+    setCurrentCount(currentCount => currentCount + offset);
+
+    if (currentCount + offset >= replyCount) setEndReached(true);
+    if (mode === 'standard') setMode('clicked');
+  }
+  const updateReplies = (reply: Reply) => {
+    // console.log(reply)
+    setAllReplies([...allReplies, reply]);
+    const tempArr = replies.slice(currentCount);
+
+    setReplyCount(replyCount => replyCount + 1)
+    setShownReplies([...shownReplies, ...tempArr, reply]);
+    setCurrentCount(allReplies.length + 10);
+    setMode(
+      'clicked'
+    );
+  }
+  const cancelReply = () => {
+    setPostReply(false);
+  }
+  const hideReplies = () => {
+    setShownReplies([]);
+    setCurrentCount(0);
+    setMode(
+      'standard'
+    );
+  }
+  //https://masteringjs.io/tutorials/fundamentals/foreach-break
+  const checkCommentScore = (commentId: string) => {
+    let score: number = 0;
+    // console.log(commentId);
+    // console.log(commentReactions);
+    commentReactions.every((reaction) => {
+      if (commentId === reaction.commentid) {
+        score = Number(reaction.score);
+        return false;
+      }
+      return true;
+    })
+    return score;
+  }
+  useEffect(() => {
+    if (setRepliesoff) {
+      setPostReply(false);
+    }
+  }, [setRepliesoff])
+  const renderMode = () => {
+    if (mode === 'standard') {
+      return <>{
+        replyCount == 1 ?
+        <button
+          className='reply-cont reply-cont-btn'
+          onClick={handleShowReplies}
+        >
+          Show Reply
+        </button>:
+        <button
+          className='reply-cont reply-cont-btn'
+          onClick={handleShowReplies}
+        >
+          {replyCount} replies
+        </button>   
+      }</>
+    } else if (mode === 'clicked') {
+      return (
+        <>
+          {
+            shownReplies.map((reply) => {
+              return (
+                <article
+                  className='reply-cont'
+                >
+                  <section className='ellipsis-section'>
+                    <p key={reply.id}>{reply.username }: {reply.replyText}</p>
+                    {/* <button>...</button> */}
+                    <DropDownAll
+                      buttonName='&#65049;'
+                      dropdownId={`ellipsis-${reply.id}`}
+                      btnClass='ellipsis-btn'
+                      positionY='34px'
+                    >
+                      <button onClick={() => {
+                        setReportFormOn(reply.id)
+                      }}>Report</button>
+                    </DropDownAll>
+                  </section>
+                  <LikeDislike
+                    score={Number(reply.score)} 
+                    myScore={checkCommentScore(reply.id)}
+                    commentId={reply.commentIdRef}
+                    username={username}
+                    isReply={true}
+                    replyId={reply.id}
+                    storyId={storyId}
+                  />
+                  {
+                    reportFormOn === reply.id? 
+                    <ReportForm
+                      reportType='story'
+                      username={reply.username}
+                      contentId={reply.id}
+                      commentId={reply.commentIdRef}
+                      clearReport={() => { setReportFormOn(''); }}
+                    />:
+                    <></>
+                  }
+                </article>
+              )
+            })
+          }{
+            endReached === false ? 
+            <button
+            className='reply-cont reply-cont-btn'
+            onClick={handleShowReplies}
+          >
+            Show More Replies
+          </button>:
+          <></>
+          }
+          <button
+            className='reply-cont reply-cont-btn'
+            onClick={hideReplies}
+          >
+            Hide replies
+          </button>
+        </>
+      )
+    } else {
+      return (
+        <></>
+      )
+    }
+  }
+
+  return (
+    <>
+    {
+      username ? 
+      <section
+        className='post-section'
+      >
+        {
+          postReply ?
+          <PostReply
+            storyId={storyId} 
+            storyTitle={storyTitle}
+            commentId={commentId}
+            updateReplies={updateReplies}
+            cancelReply={cancelReply}
+          />:
+          <button
+            className='reply-button'
+            onClick={() => setPostReply(true)}
+          >
+            Reply &#187;
+          </button>
+        }
+      </section>:
+      <></>
+      }
+      {
+        allReplies.length ? 
+        renderMode():
+        <></>
+      }
+    </>
+  )
+}

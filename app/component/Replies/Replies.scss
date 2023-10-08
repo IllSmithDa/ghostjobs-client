@@ -1,0 +1,39 @@
+@import '../../styles/variables';
+@import '../../styles/components';
+
+.reply-cont {
+  margin-left: 4rem;
+  &-btn {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    background-color: inherit;
+    border: none;
+    color: $color-white;
+    cursor: pointer;
+    &:hover,
+    &:active {
+      text-decoration-line: underline;
+    }
+  }
+}
+
+.post-section {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 4rem;
+  display: flex;
+
+}
+
+.reply-button {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: inherit;
+  border: none;
+  color: $color-white;
+  cursor: pointer;
+  &:hover,
+  &:active {
+    text-decoration-line: underline;
+  }
+}

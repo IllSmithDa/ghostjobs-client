@@ -1,0 +1,60 @@
+@mixin flexRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+@mixin flexHorizontal {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin defaultDimensions {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  font-size: 1.3rem;
+  padding: 2rem;
+  box-sizing: border-box;
+  @media (max-width: 1200px) {
+    width: 96%;
+  }
+}
+
+@mixin smallDimensions {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  font-size: 1.3rem;
+  padding: 2rem;
+  box-sizing: border-box;
+  @media (max-width: 600px) {
+    width: 90%;
+  }
+}
+
+
+@mixin fixedTop {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+}
+
+@mixin fixedCenter {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

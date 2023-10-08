@@ -1,0 +1,21 @@
+@import "../../styles/variables";
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+}
+.loader {
+  border: 1rem solid #f3f3f3; /* Light grey */
+  border-top: 1rem solid $dark-grey;
+  border-bottom: 1rem solid $dark-grey;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+  align-self: center;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

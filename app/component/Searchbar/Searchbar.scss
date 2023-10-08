@@ -1,0 +1,50 @@
+@import "../../styles/variables";
+.search-jobs {
+  display: flex;
+  justify-content: center;
+  background-color: $dark-grey;
+  height: 32px;
+  margin-top: 10px;
+  border-radius: 2px;
+  &-desktop {
+    @media (max-width: $mid-desktop) {
+      display: none;
+    }
+  }
+  &-mobile {
+    display: none;
+    @media (max-width: $mid-desktop) {
+      display: flex;
+    }
+  }
+  button {
+    background-color: inherit;
+    border: none;
+    outline-color: #444;
+    cursor: pointer;
+  }
+}
+.search-input {
+  box-sizing: border-box;
+  height: 3.2rem;
+  border:none;
+  padding-left: 1rem;
+  font-size: $default-font-size;
+  color: $color-white;
+  background-color: $dark-grey;
+  outline-color: $color-white;
+  &-desktop {
+    width: 25rem;
+  }
+  &-mobile {
+    width: 20rem;
+  }
+}
+.search-icon {
+  margin-top: 2px;
+  height: 24px;
+  padding-right: 5px;
+  padding-left: 5px;
+  color: $color-white;
+  background-color: $dark-grey;
+}

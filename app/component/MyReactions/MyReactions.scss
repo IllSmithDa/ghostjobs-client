@@ -1,0 +1,13 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+@import '../../styles/components';
+
+.my-reactions-cont {
+  width: 100%;
+  min-height: 75vh;
+}
+.empty-reaction {
+  @include flexCenter;
+  min-height: 75vh;
+  background-color: $dark-night;
+}

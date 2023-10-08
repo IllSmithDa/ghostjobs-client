@@ -1,0 +1,8 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+@import "../../styles/components";
+
+#login-form {
+  @include smallDimensions;
+  background-color: $dark-night;
+}

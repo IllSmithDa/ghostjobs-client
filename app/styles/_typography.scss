@@ -1,0 +1,18 @@
+@import './variables';
+
+
+.small-text {
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  &-error {
+    color: $error-red;
+  }
+}
+
+.medium-text {
+  font-size: 1.7rem;
+  line-height: 1.9rem;
+  &-error {
+    color: $error-red;
+  }
+}

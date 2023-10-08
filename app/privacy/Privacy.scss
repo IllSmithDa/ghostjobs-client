@@ -1,0 +1,15 @@
+@import '../styles/mixins';
+@import '../styles/variables';
+.privacy-page{
+  background-color: $dark-night;
+  padding: 2rem;
+  @include defaultDimensions;
+  p {
+    font-size: $default-font-size;
+  }
+  a,
+  a::before,
+  a::after {
+    color: $color-white
+  }
+}

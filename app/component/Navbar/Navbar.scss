@@ -1,0 +1,92 @@
+@import "../../styles/components";
+@import "../../styles/mixins";
+@import "../../styles/variables";
+.tab-menu {
+  @include flexRow;
+  height: 52px;
+  padding-left: 5px;
+  padding-right: 5px;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  nav {
+    display: flex;
+  }
+  background-color: #111;
+}
+
+.ghost-logo {
+  height: 22px;
+  margin-top: 15px;
+  color: $color-white;
+  margin-left: 1rem;
+}
+.arrow-icon {
+  margin-top: 12px;
+}
+.arrow-icon, 
+.search-icon-mobile {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  height: 26px;
+  color: $color-white;
+  display: none;
+  cursor: pointer;
+  @media (max-width: $mid-desktop) {
+    display: block;
+  }
+  &:active {
+    outline-color: $color-white;
+  }
+}
+
+.mobile-searchbar {
+  display: none;
+  position: absolute;
+  @media (min-width: $mid-desktop) {
+    display: none;
+  }
+  background-color: #111;
+}
+.desktop-searchbar {
+  display: flex;
+  margin-left: 1rem;
+  @media (max-width: $mid-desktop) {
+    display: none;
+  }
+}
+#login-btn-desktop {
+  display: block;
+  @media (max-width:$mobile-screen) {
+    display: none;
+  }
+}
+.desktop-links {
+  display: flex;
+  position:fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  a,
+  a:visited, 
+  a:before{
+    color: $color-white;
+    text-decoration-line: none;
+  }
+  a {
+    p {
+      font-size: $medium-font-size;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      margin-top: 1.5rem;
+    }
+    &:hover,
+    &:active {
+      text-decoration-line: underline;
+    }
+  }
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}

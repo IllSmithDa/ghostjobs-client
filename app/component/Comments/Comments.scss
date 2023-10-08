@@ -1,0 +1,23 @@
+@import '../../styles/variables';
+@import '../../styles/components';
+
+.comments-container {
+  h1 {
+    font-size: $medium-font-size
+  }
+  p {
+    color: #FFF;
+    font-size: $small-font-size;
+
+  }
+  article {
+    padding: 1rem 2rem 2rem 2rem;
+    background-color: $dark-night;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+  }
+}
+.reply-article {
+  width: 85%;
+  margin-left: auto;
+}

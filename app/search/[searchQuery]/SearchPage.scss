@@ -1,0 +1,52 @@
+@import "../../styles/variables";
+@import "../../styles/components";
+@import "../../styles/mixins";
+
+.story-list-container {
+  @include defaultDimensions;
+  margin-top: 1rem;
+  width: 50%;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+  column-gap: 1rem;
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+  h1 {
+    margin-top: 3rem;
+  }
+}
+
+
+.story-card {
+  background-color: #222;
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: $default-shadow;
+  border-radius: 5px;
+  h1 {
+    font-size: $article-title;
+  }
+  h2 {
+    font-size: $default-font-size;
+  }
+  section {
+    @include flexRow;
+  }
+}
+
+.tag-header {
+  font-size: $small-font-size;
+}
+
+.tags {
+  font-size: $small-font-size;
+  text-decoration: underline;
+}
+
+.head-story-list {
+  @include flexRow;
+}

@@ -1,0 +1,13 @@
+@import "../../styles/variables";
+
+.tag-header {
+  font-size: $small-font-size;
+}
+.tag-container {
+  display: flex;
+}
+.tags {
+  font-size: $small-font-size;
+  text-decoration: underline;
+  margin-left: 1rem;
+}

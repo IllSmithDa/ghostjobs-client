@@ -1,0 +1,20 @@
+@import '../../styles/components';
+@import '../../styles/typography';
+@import '../../styles/mixins';
+#register-form {
+  display: flex;
+  @include smallDimensions;
+  background-color: $dark-night;
+  p {
+    text-align: left;
+    a,
+    a::before,
+    a::after {
+      color: $baby-blue;
+    }
+  }
+  h2 {
+    text-decoration: none;
+    cursor: default;
+  }
+}

@@ -1,0 +1,10 @@
+@import '../styles/mixins';
+@import '../styles/components';
+
+.admin-container {
+  @include defaultDimensions;
+}
+.story-content {
+  white-space: pre-wrap;
+  font-size: $default-font-size;
+}

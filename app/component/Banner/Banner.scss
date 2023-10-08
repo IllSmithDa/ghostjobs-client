@@ -1,0 +1,24 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+@import "../../styles/components";
+.banner {
+  @include flexCenter;
+  color: #ffffff;
+  text-align: center;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+  background-image: url('../../../public/assets/laptop.jpg');
+  background-color: $light-grey-text;
+  background-blend-mode: multiply;
+  padding: 2rem;
+  box-sizing: border-box;
+  h1 {
+    font-size: 2.4rem;
+    margin: 0;
+  }
+  p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+}

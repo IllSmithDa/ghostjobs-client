@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+@import '../../styles/components';
+
+.reaction-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  ul {
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    li {
+      list-style: none;
+      text-align: center;
+    }
+  }
+}

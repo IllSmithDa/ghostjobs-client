@@ -1,0 +1,15 @@
+@import '../styles/mixins';
+@import '../styles/components';
+@import '../styles/variables';
+.register-fail {
+  @include defaultDimensions;
+  @include flexCenter;
+  height: 80vh;
+  article {
+    border-radius: 3px;
+    z-index: 3;
+    background-color: $dark-night;
+    padding: 2rem;
+    @include flexCenter;
+  }
+}
