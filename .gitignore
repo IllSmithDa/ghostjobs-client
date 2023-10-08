@@ -36,7 +36,3 @@ next-env.d.ts
 
 #babel files
 .babelrc
-*.babelrc
-.babelrc*
-/.babelrc/
-/babelrc
