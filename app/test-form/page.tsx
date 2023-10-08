@@ -6,7 +6,7 @@ import { axiosFetch } from '../component/Axios/axios';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
-export default function Register({setLoader}:{ setLoader: (state: 'login'|'register'|'loading') => void}) {
+export default function Register({setLoader}:{ setLoader: (state: string) => void}) {
   const [requestErr, setRequsetErr] = useState('');
   const closeModal = () => {
     const close  = document.getElementById('modal');
