@@ -4,10 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { MouseEvent, useEffect } from 'react'
 import "./DropdownMenu.scss"
 import Link from 'next/link'
-import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
 import { logoutUser } from '../redux/features/AuthSlice';
+import { axiosFetch } from '../Axios/axios';
 
 interface AuthState {
   userData: {
@@ -49,7 +48,7 @@ export default function DropdownMenu() {
   }, []);
 
   const logout = () => {
-    axios.get('http://localhost:5000/api/users/logout-user', { withCredentials: true})
+    axiosFetch.get('/api/users/logout-user', { withCredentials: true})
       .then(() => {
         // harsh but works for now
         dispatch(logoutUser());
