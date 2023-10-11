@@ -26,7 +26,7 @@ export default function StoryList() {
       try {
         const res = await axiosFetch.post(`/api/story/by-date/${offset}/${limit}`)
         if (res.status === 200) {
-          console.log(res.data);
+          // console.log(res.data);
           setOffset(offset => offset + 7);
           if (res.data.stories.length) {
             setStoryList([...storyList, ...res.data.stories])
@@ -57,7 +57,7 @@ export default function StoryList() {
       try {
         const res = await axiosFetch.post(`/api/story/by-date/${offset}/${limit}`)
         if (res.status === 200) {
-          console.log(res.data);
+          // console.log(res.data);
           setOffset(offset => offset + 7);
           if (res.data.stories.length) {
             setStoryList([...storyList, ...res.data.stories])
@@ -73,11 +73,7 @@ export default function StoryList() {
     }
     fetchData();
   }, []);
-  const openModal = () => {
-    const login = document.getElementById('report-form');
-    if(login) login.style.display = 'flex';
-  }
-  //       <Tags tagList={story.tags} />
+
   const renderList = () => storyList?.map((story) => (
     <article key={story.id} className='item-card'>
       <section>

@@ -27,10 +27,10 @@ export default function MyReactions({
         let controller = new AbortController();
         const fetchMyStories = async () => {
           try {
-            console.log(username)
+            // console.log(username)
             const res = await axiosFetch.get(`/api/story/story-reactions/${username}/${offset}/${limit}`);
             setOffset(offset => offset + limit);
-            console.log(res.data.reactions);
+            // console.log(res.data.reactions);
             setReactions([...res.data.reactions]);
           } catch (err) {
             setErr((err as Error).message)

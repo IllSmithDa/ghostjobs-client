@@ -57,13 +57,13 @@ export default function Comments({
 
   useEffect(() => {
     const fetchLikesDislikes = async () => {
-      console.log(`username ${username}`)
+      // console.log(`username ${username}`)
       try {
         if (username) {
           const res = await axiosFetch.get(`/api/reactions/comment-reactions/${username}`);
           if (res.status === 200) {
             setCommentReactions(res.data.reactions)
-            console.log(res.data.reactions);
+            // console.log(res.data.reactions);
             setTimeout(() => {
               setInitLoading(false);
             }, 100)
@@ -79,7 +79,7 @@ export default function Comments({
       try {
         const res = await axiosFetch.get(`/api/story/comments/${storyId}/${offset}/${limit}`);
         if (res.status === 200) {
-          console.log(res.data.comments);
+          // console.log(res.data.comments);
           setComments([...res.data.comments])
           setOffset(val => val + limit);
           setTimeout(() => {
@@ -115,8 +115,8 @@ export default function Comments({
         const res = await axiosFetch.get(`/api/story/comments/${storyId}/${offset}/${limit}`)
         if (res.status === 200) {
           setOffset(offset => offset + limit);
-          console.log(comments);
-          console.log(res.data.comments)
+          // console.log(comments);
+          // console.log(res.data.comments)
           if (res.data.comments.length) {
             setComments([...comments, ...res.data.comments])
           } else {
@@ -163,7 +163,7 @@ export default function Comments({
   }
 
   const renderComments = () => comments.map((comment:Comment) => (
-    <>
+    <div key={comment.id}>
       <article>
         <section className='ellipsis-section'>
           <p key={comment.id}>{comment.username }: {comment.text}</p>
@@ -207,7 +207,7 @@ export default function Comments({
         setRepliesoff={repliesOff}
         commentReactions={commentReactions}
       />
-    </>
+    </div>
   ))
 
   return (

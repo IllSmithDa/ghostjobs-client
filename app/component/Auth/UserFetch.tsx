@@ -22,7 +22,7 @@ export default function UserFetch({
         const {username:user, isadmin, isbanned, strikes} = res.data.userData;
         // console.log(res.data.userData);
         // const strikes:number = res.data.userData.strikes;
-        console.log(user);
+        // console.log(user);
         dispatch(loginUser({username: user, isadmin, strikes, isbanned}))
         setLoading(false);
       })

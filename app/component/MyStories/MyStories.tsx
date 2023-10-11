@@ -91,7 +91,7 @@ export default function MyStories() {
       try {
         const res = await axiosFetch.post(`/api/story/by-date/${offset}/${limit}`)
         if (res.status === 200) {
-          console.log(res.data);
+          // console.log(res.data);
           setOffset(offset => offset + 7);
           if (res.data.stories.length) {
             setStories([...stories, ...res.data.stories])

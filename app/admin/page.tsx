@@ -32,7 +32,7 @@ export default function page() {
       const result = await axiosFetch.get(`/api/get-reports/${offset}/${limit}`);
       if (result.status === 200) {
         setOffset(offset => offset + 10);
-        console.log(result.data.reports);
+        // console.log(result.data.reports);
         setReports(result.data.reports)
       }
     }

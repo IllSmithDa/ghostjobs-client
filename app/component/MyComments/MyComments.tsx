@@ -30,10 +30,10 @@ export default function MyComments({ username } : {
     let controller = new AbortController();
     const fetchMyStories = async () => {
       try {
-        console.log(username)
+        // console.log(username)
         const res = await axiosFetch.get(`/api/story/my-comments/${username}/${offset}/${limit}`);
         setOffset(offset => offset + limit);
-        console.log(res.data.comments);
+        // console.log(res.data.comments);
         setComments([...res.data.comments]);
       } catch (err) {
         setErr((err as Error).message)
@@ -53,7 +53,7 @@ export default function MyComments({ username } : {
       try {
         const res = await axiosFetch.get(`/api/story/my-comments/${username}/${offset}/${limit}`)
         if (res.status === 200) {
-          console.log(res.data.comments);
+          // console.log(res.data.comments);
           setOffset(offset => offset + 7);
           if (res.data.comments.length) {
             setComments([...comments, ...res.data.comments])
@@ -93,14 +93,6 @@ export default function MyComments({ username } : {
       setErr('Error: Sever is not responding. Contact an adminstrator for addtional ')
     }
 
-  }
-  const closeDropdown = (dropdownId: string) => {
-    const position = document.getElementById(`dropdown-comment-${commentId}`);
-    if(position) position.style.position = 'static';
-    const dropdownContent = document.getElementById(dropdownId);
-    if (dropdownContent) dropdownContent.style.display = 'none';
-    const content = document.getElementById('generic-dropdown-modal');
-    if (content) content.style.display = 'none';
   }
   return (
     <section className='my-comments-cont'>

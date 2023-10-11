@@ -22,7 +22,7 @@ export default function StoryDetail(
   setReportFormOn: (reportState: boolean) =>  void,
 }) {
   // const storyDetail:StoryDetail = sample[storyId];
-  console.log(storyData);
+  // console.log(storyData);
   return (
     <article className='story-container'>
       <section className='ellipsis-section'>

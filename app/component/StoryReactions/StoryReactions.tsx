@@ -72,7 +72,7 @@ export default function StoryReactions(
       if (result.status === 200) {
         setNewReaction(true);
         const newScore = allReactions[reaction] - 1;
-        console.log(`score ${newScore}`)
+        // console.log(`score ${newScore}`)
         setAllReactions({
           ...allReactions,
           [reaction]: newScore
