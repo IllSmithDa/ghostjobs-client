@@ -27,7 +27,7 @@ export default function UserFetch({
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         setLoading(false);
       })
   }, [])
