@@ -1,6 +1,6 @@
 export const ghostjobs =  {
   info: `
-    GhostOn is a place where you can share your wok place stories with others. GhostOn is also a reference to a phenomenon of 'ghost jobs' that has been recently (as of 2023) plagued the job market and have become a prevelant discussion among job seekers. Ghost Jobs according to ChatGPT are job postings that promise opportunities but are actually designed to gather personal information.
+    GhostedOn is a place where you can share your wok place stories with others. GhostedOn is also a reference to a phenomenon of 'ghost jobs' that has been recently (as of 2023) plagued the job market and have become a prevelant discussion among job seekers. Ghost Jobs according to ChatGPT are job postings that promise opportunities but are actually designed to gather personal information.
 
   `,
   purpose: `

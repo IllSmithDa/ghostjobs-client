@@ -6,7 +6,7 @@ export default function page() {
     <section
       className='about-page'
     >
-      <h2>Why GhostOn?</h2>
+      <h2>Why GhostedOn?</h2>
       <p>{ghostjobs.info}</p>
       <h2>Purpose of these Ghost Jobs?</h2>
       <p>{ghostjobs.purpose}</p>

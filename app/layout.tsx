@@ -11,7 +11,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'GhostOn',
+  title: 'GhostedOn',
   description: 'Share your work stories anonymously',
 }
 
