@@ -30,7 +30,9 @@ export default function DropdownMenu() {
     if(modal) modal.style.display = 'none';
   }
 
-  //https://hackernoon.com/cleanup-functions-in-reacts-useeffect-hook-explained
+  // https://hackernoon.com/cleanup-functions-in-reacts-useeffect-hook-explained
+  // https://stackoverflow.com/questions/55500547/express-session-does-not-save-the-passport-user-id-when-hosting-on-heroku
+  // https://stackoverflow.com/questions/65767024/express-session-not-working-in-production-deployment
   useEffect(() => {
     // handler
     const handleMouseEvent = (event: { target: any }) => {
