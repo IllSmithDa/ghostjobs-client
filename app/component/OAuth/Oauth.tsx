@@ -7,6 +7,8 @@ import { faGoogle, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-ic
 import './Oauth.scss';
 import axios from 'axios';
 
+// const BASE_URL = 'http://localhost:5000'
+const BASE_URL = 'https://ghost-jobs-e674172156d1.herokuapp.com'; 
 export default function Oauth({
   company,
 }: {
@@ -29,7 +31,7 @@ export default function Oauth({
 
   const googleAuth =() => {
 		window.open(
-			`http://localhost:5000/auth/google`,
+			`${BASE_URL}/auth/google`,
 			"_self"
 		);
   }
