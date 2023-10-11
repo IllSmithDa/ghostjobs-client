@@ -22,7 +22,7 @@ type Props = {
 export default function Story({ params: {storyId}}: Props) {
   const { username } = useSelector((res:AuthState) => res.userData.user);
   // const username = await userFetch();
-  // console.log(`username ${username}`);
+  console.log(`story Id ${storyId}`);
   const [storyData, setStoryData] = useState<Story>();
   const [myStoryReaction, setMyStoryReaction] = useState('none');
   const [err, setError] = useState<string>();
