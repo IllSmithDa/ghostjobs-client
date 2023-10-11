@@ -27,7 +27,7 @@ export default async function RootLayout({
             <ComponentModal />
             <UserFetch>
               <Navbar/>
-            <div style={{ marginTop: 52 }}></div>
+              <div style={{ marginTop: 52 }}></div>
             {children}
             </UserFetch>
         </body>
