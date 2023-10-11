@@ -1,10 +1,10 @@
 export const ghostjobs =  {
   info: `
-    Ghost Jobs is a place where you can share your wok place stories with others. Ghost jobs is also a reference to a phenomenon that has been recently (as of 2023) plagued the job market and have become a prevelant discussion among job seekers. Ghost Jobs according to ChatGPT are job postings that promise opportunities but are actually designed to gather personal information.
+    GhostOn is a place where you can share your wok place stories with others. GhostOn is also a reference to a phenomenon of 'ghost jobs' that has been recently (as of 2023) plagued the job market and have become a prevelant discussion among job seekers. Ghost Jobs according to ChatGPT are job postings that promise opportunities but are actually designed to gather personal information.
 
   `,
   purpose: `
-    There can be many reasons why companies are positing Ghost Jobs but common reasons include giving a perception of company growth to those on the outside, using the multitude of recieved applications from ghost jobs to further threatening current employees that they are replaceable and to collect data including applicant's desired salary information to further adjust current employees' salaries. While this is not a exhaustive list of reasons, it does cover some of the main reasons why ghost jobs exists.  
+    There can be many reasons why companies are positing ghost jobs but common reasons include giving a perception of company growth to those on the outside, using the multitude of recieved applications from ghost jobs to further threatening current employees that they are replaceable and to collect data including applicant's desired salary information to further adjust current employees' salaries. While this is not a exhaustive list of reasons, it does cover some of the main reasons why ghost jobs exists.  
   `,
   expandedInfo: [
     `

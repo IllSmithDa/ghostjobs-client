@@ -88,7 +88,7 @@ export default function Navbar() {
       <nav>
         <Link href="/" >
           <Image
-            src="/assets/ghost-jobs.png"
+            src="/assets/ghosted_on.png"
             alt="ghost-jobs"
             className='ghost-logo'
             width={125}
