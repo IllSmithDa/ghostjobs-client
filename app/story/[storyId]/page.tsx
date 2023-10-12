@@ -22,7 +22,6 @@ type Props = {
 export default function Story({ params: {storyId}}: Props) {
   const { username } = useSelector((res:AuthState) => res.userData.user);
   // const username = await userFetch();
-  console.log(`story Id ${storyId}`);
   const [storyData, setStoryData] = useState<Story>();
   const [myStoryReaction, setMyStoryReaction] = useState('none');
   const [err, setError] = useState<string>();
@@ -34,36 +33,35 @@ export default function Story({ params: {storyId}}: Props) {
   }
 
   useEffect(() => {
-    const getStory = async () => {
-      try {
-        const res = await axiosFetch.get(`api/story/${storyId}`)
-        if (res.status === 200) setStoryData(res.data);
-      } catch (err) {
-        setError((err as Error).message);
-      }
-    }
-
-    const checkExistingReaction = async () => {
-      try {
-        const res = await axiosFetch.get(`api/story/reaction/${storyId}/${username}`);
-        if (res.data.reaction) {
-          setMyStoryReaction(res.data.reaction.reaction)
+      const getStory = async () => {
+        try {
+          const res = await axiosFetch.get(`api/story/${storyId}`)
+          if (res.status === 200) setStoryData(res.data);
+        } catch (err) {
+          setError((err as Error).message);
         }
-        setFetchedReactions(true);
-      } catch (err) {
-        setError((err as Error).message);
       }
-    }
-    if (storyId) {
-      getStory();
-      if (username) {
-        checkExistingReaction();
-      } else [
-        setTimeout(() => {
+      const checkExistingReaction = async () => {
+        try {
+          const res = await axiosFetch.get(`api/story/reaction/${storyId}/${username}`);
+          if (res.data.reaction) {
+            setMyStoryReaction(res.data.reaction.reaction)
+          }
           setFetchedReactions(true);
-        }, 2000)
-      ]
-    }
+        } catch (err) {
+          setError((err as Error).message);
+        }
+      }
+      if (storyId) {
+        getStory();
+        if (username) {
+          checkExistingReaction();
+        } else {
+          setTimeout(() => {
+            setFetchedReactions(true);
+          }, 2000)
+        }
+      }
   }, [storyId, username])
   
   return (
