@@ -1,8 +1,9 @@
 'use client';
 import React, { useState } from 'react'
-import './ResetPassword.scss';
-import axios from 'axios';
 import Loader from '../component/Loader/Loader';
+import { axiosFetch } from '../component/Axios/axios';
+import './ResetPassword.scss';
+
 export default function page() {
   const [email, setEmail] = useState('');
   const [reqMsg, setReqMsg] = useState('Initializing....')
@@ -14,7 +15,7 @@ export default function page() {
         setReqState('failed')
         return;
       }
-      const res = await axios.post('http://localhost:5000/api/email/request-reset-password', {
+      const res = await axiosFetch.post('/api/email/request-reset-password', {
         email
       })
       console.log(res);
