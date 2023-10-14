@@ -1,7 +1,7 @@
 'use client';
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { MouseEvent, useEffect } from 'react'
+import React, { MouseEvent, useEffect, useState } from 'react'
 import "./DropdownMenu.scss"
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,12 +22,10 @@ interface AuthState {
 }
 export default function DropdownMenu() {
   const { username, isadmin } = useSelector((res:AuthState) => res.userData.user);
+  const [displayNavMenu, setDisplayNavMenu] = useState(false);
   const dispatch = useDispatch();
   const closeModal = () => {
-    const login = document.getElementById('main-nav-menu');
-    if(login) login.style.display = 'none';
-    const modal = document.getElementById('dropdown-modal');
-    if(modal) modal.style.display = 'none';
+    setDisplayNavMenu(false);
   }
 
   // https://hackernoon.com/cleanup-functions-in-reacts-useeffect-hook-explained
@@ -58,6 +56,7 @@ export default function DropdownMenu() {
       })
   }
   const openModal = () => {
+    setDisplayNavMenu(false);
     const login = document.getElementById('modal');
     if(login) login.style.display = 'flex';
   }
@@ -70,44 +69,50 @@ export default function DropdownMenu() {
         tabIndex={0}
         aria-label='app menu'
         onClick={() => {
-          const login = document.getElementById('main-nav-menu');
-          if(login) login.style.display = 'block';
-          const modal = document.getElementById('dropdown-modal');
-          if(modal) modal.style.display = 'block';
+          setDisplayNavMenu(true);
         }}  
       />
-      <nav id="main-nav-menu">
-        <Link href='/' onClick={closeModal}>Home</Link>
-        {
-          username ?
-          <Link href='/profile' onClick={closeModal}>Profile</Link>:
-          <></>
-        }
-        {
-          isadmin && username ? 
-          <Link href='/admin' onClick={closeModal}>Admin</Link>:
-          <></>
-        }
-        {
-          username ? 
-          <Link href='/new-story' onClick={closeModal}>Share Story</Link>:
-          <></>
-        }
-                {
-          username ? 
-          <Link href='/settings' onClick={closeModal}>Settings</Link>:
-          <></>
-        }
-        <Link href='/about-us' onClick={closeModal}>About Us</Link>
-        <Link href='/terms' onClick={closeModal}>Terms</Link>
-        <Link href='/privacy' onClick={closeModal}>Privacy</Link>
-        {
-          username ?
-          <button onClick={logout}>Logout</button>:
-          <button onClick={openModal}>Login</button>
-        }
-      </nav>
-      <div id='dropdown-modal' />
-    </div>
+
+      {
+        displayNavMenu ?
+        <nav id="main-nav-menu">
+          <Link href='/' onClick={closeModal}>Home</Link>
+          {
+            username ?
+            <Link href='/profile' onClick={closeModal}>Profile</Link>:
+            <></>
+          }
+          {
+            isadmin && username ? 
+            <Link href='/admin' onClick={closeModal}>Admin</Link>:
+            <></>
+          }
+          {
+            username ? 
+            <Link href='/new-story' onClick={closeModal}>Share Story</Link>:
+            <></>
+          }
+                  {
+            username ? 
+            <Link href='/settings' onClick={closeModal}>Settings</Link>:
+            <></>
+          }
+          <Link href='/about-us' onClick={closeModal}>About Us</Link>
+          <Link href='/terms' onClick={closeModal}>Terms</Link>
+          <Link href='/privacy' onClick={closeModal}>Privacy</Link>
+          {
+            username ?
+            <button onClick={logout}>Logout</button>:
+            <button onClick={openModal}>Login</button>
+          }
+        </nav>:
+        <></>
+      }
+      {
+        displayNavMenu ?
+        <div id='dropdown-modal' />:
+        <></>
+      } 
+      </div>
   )
 }

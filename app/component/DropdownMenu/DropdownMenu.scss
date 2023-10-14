@@ -20,7 +20,7 @@
 }
 
 #main-nav-menu {
-  display: none;
+  display: block;
   position: absolute;
   top: 52px;
   right: 0;
@@ -52,7 +52,6 @@
 }
 
 #dropdown-modal {
-  display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 2; /* Sit on top */
   left: 0;
