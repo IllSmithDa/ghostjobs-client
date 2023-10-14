@@ -132,6 +132,10 @@ export default function Login({setLoader}:{ setLoader:(state: string) => void}) 
           const result = await axiosFetch.post(`/api/users/login-user`,   dataToSubmit, {
             withCredentials: true,  
           });
+          if (result.status === 403) {
+            setRequestErr(result.data.err);
+            return;
+          }
           if (result.status === 200) {
             closeModal();
             window.location.reload();
