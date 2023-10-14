@@ -1,16 +1,8 @@
 'use client';
-import Image from 'next/image'
-import styles from './page.module.scss'
-import Poststory from './component/PostStory.scss/PostStory'
-import StoryDetail from './component/StoryDetail/StoryDetail'
 import StoryList from './component/StoryList/StoryList'
-import { sample } from './testdata/testdata'
 import Banner from './component/Banner/Banner'
-import Box from './component/Box/Box'
-import axios from 'axios'
-import { useDispatch } from 'react-redux'
-import { loginUser } from './component/redux/features/AuthSlice'
 import { useEffect } from 'react'
+import './globals.scss'
 
 
 export default function () {
@@ -21,6 +13,16 @@ export default function () {
   return (
     <main className='main'>
       <Banner />
+      <ins className="adsbygoogle"
+          data-ad-client="ca-pub-2907367619848104"
+          data-ad-slot="6276837611"
+          data-ad-format="auto"
+          data-full-width-responsive="true">
+          
+          </ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
       <StoryList />
     </main>
   )

@@ -6,7 +6,8 @@ import ReduxProvider from './component/redux/ReduxProvider'
 import ComponentModal from './component/ComponentModal/ComponentModal'
 import userFetch from './component/Auth/UserFetch'
 import UserFetch from './component/Auth/UserFetch'
-import { GoogleOAuthProvider } from '@react-oauth/google'
+import Script from 'next/script'
+import Head from 'next/head'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,16 +24,19 @@ export default async function RootLayout({
   return (
     <ReduxProvider>
       <html lang="en">
-        <head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2907367619848104"
-     crossOrigin="anonymous"></script>
-        </head>
+        <Script 
+          id="Absense-banner"
+          async
+          strategy="afterInteractive"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2907367619848104"
+          crossOrigin="anonymous"
+        />
         <body className={inter.className}>
             <ComponentModal />
             <UserFetch>
               <Navbar/>
               <div style={{ marginTop: 52 }}></div>
-            {children}
+              {children}
             </UserFetch>
         </body>
       </html>
