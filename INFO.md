@@ -27,3 +27,7 @@ https://stackoverflow.com/questions/3212459/is-there-a-command-to-undo-git-init
 
 # Adsense Help
 https://support.google.com/adsense/answer/9274019?hl=en&ref_topic=28893&sjid=17345869725042770869-NA
+
+# Session Cookie do not need consent as it is first party 
+https://www.cookieyes.com/blog/session-cookies/#:~:text=Do%20you%20need%20consent%20for,not%20require%20consent%20under%20GDPR.
+
