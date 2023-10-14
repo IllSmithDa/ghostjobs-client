@@ -24,3 +24,6 @@ https://stackoverflow.com/questions/3212459/is-there-a-command-to-undo-git-init
 
 
 // https://65224a7a94794e0008bec647--venerable-begonia-88eaeb.netlify.app/
+
+# Adsense Help
+https://support.google.com/adsense/answer/9274019?hl=en&ref_topic=28893&sjid=17345869725042770869-NA

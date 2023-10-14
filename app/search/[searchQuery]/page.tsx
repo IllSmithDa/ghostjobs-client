@@ -18,6 +18,7 @@ export default function SearchPage({ params: {searchQuery}}: Props) {
   const [reportFormOn, setReportFormOn] = useState('');
   const searchTerm = searchQuery.replaceAll('%20', ' ');
   const [isLoading, setIsLoading] = useState(true);
+  const [noResults, setNoResults] = useState<boolean>(false);
   const [reachedEnd, setReachedEnd] = useState(false);
   const [offset, setOffset] = useState(0);
   const [stories, setStories] = useState<Story []>([]);
@@ -39,6 +40,7 @@ export default function SearchPage({ params: {searchQuery}}: Props) {
           const res = await axiosFetch.post('/api/story/search', data);
           setOffset(offset => offset + limit);
           setStories([...res.data.stories]);
+          if (!res.data.stories.length) setNoResults(true);
         } catch (err) {
           setErr((err as Error).message)
         } finally {
@@ -135,6 +137,11 @@ export default function SearchPage({ params: {searchQuery}}: Props) {
       </section>
 
       {renderList()}
+      {
+        noResults ? 
+        <p>No Results Found</p>:
+        <></>
+      }
       {
         isLoading ? 
         <Loader />:
