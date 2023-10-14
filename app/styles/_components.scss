@@ -343,11 +343,11 @@
 }
 .story-tag {
   background-color: $dark-grey;
-  line-height: $small-font-size;
+  font-size: $small-font-size;
   padding: 1rem;
   max-width: fit-content;
   margin: 0;
-  max-height: 34px;
+  max-height: 3.4rem;
   box-sizing: border-box;
 }
 .std-icon {

@@ -4,5 +4,6 @@
 
 #login-form {
   @include smallDimensions;
+  min-height: 420px;
   background-color: $dark-night;
 }

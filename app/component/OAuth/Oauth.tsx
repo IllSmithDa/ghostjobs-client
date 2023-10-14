@@ -9,6 +9,9 @@ import axios from 'axios';
 
 // const BASE_URL = 'http://localhost:3000'
 // const BASE_URL = 'https://ghost-jobs-e674172156d1.herokuapp.com'; 
+// https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-subdomain/
+// https://docs.digitalocean.com/products/networking/dns/how-to/add-subdomain/
+
 const BASE_URL = 'https://server.ghostedon.com';
 export default function Oauth({
   company,
