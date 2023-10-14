@@ -31,3 +31,5 @@ https://support.google.com/adsense/answer/9274019?hl=en&ref_topic=28893&sjid=173
 # Session Cookie do not need consent as it is first party 
 https://www.cookieyes.com/blog/session-cookies/#:~:text=Do%20you%20need%20consent%20for,not%20require%20consent%20under%20GDPR.
 
+# Addings ad.txt file for adsense
+https://support.google.com/adsense/answer/12171612?sjid=17346782824176825072-NA#create
