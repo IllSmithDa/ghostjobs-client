@@ -5,6 +5,8 @@ import { axiosFetch } from '../../component/Axios/axios'
 import { Story } from '../../component/Types'
 import Link from 'next/link'
 import Loader from '../../component/Loader/Loader'
+import DropDownAll from '@/app/component/DropDownAll/DropDownAll'
+import ReportForm from '@/app/component/ReportForm/ReportForm'
 
 type Props = {
   params: {
@@ -13,7 +15,7 @@ type Props = {
 }
 
 export default function SearchPage({ params: {searchQuery}}: Props) {
-  const [initLoading, setInitLoading] = useState(true);
+  const [reportFormOn, setReportFormOn] = useState('');
   const searchTerm = searchQuery.replaceAll('%20', ' ');
   const [isLoading, setIsLoading] = useState(true);
   const [reachedEnd, setReachedEnd] = useState(false);
@@ -85,20 +87,44 @@ export default function SearchPage({ params: {searchQuery}}: Props) {
   }, [offset]);
 
   const renderList = () => stories?.map((story) => (
-    <article key={story.id} className='story-card'>
-      <h2>{story.title}</h2>
-      <h3>{story.username}</h3>
+    <article key={story.id} className='item-card'>
+      <section>
+      <h3>{story.title}</h3>
+        {/* <button>...</button> */}
+        <DropDownAll
+          buttonName='&#65049;'
+          dropdownId={`ellipsis-${story.id}`}
+          btnClass='ellipsis-btn'
+          positionY='34px'
+        >
+          <button onClick={() => {
+            setReportFormOn(story.id);
+          }}>Report</button>
+        </DropDownAll>
+      </section>
+      <h4>{story.username}</h4>
       <section>
         { story.tags !== '' ?
-          <p className='story-tag'>{(story.tags as string)}</p>:
-          <p className='story-tag'>N/A</p>
+        <p className='story-tag'>{(story.tags as string)}</p>:
+        <p className='story-tag'>N/A</p>
         }
-        <Link href={`/story/${story.id}`} className='link-btn link-btn-small  link-btn-white'> 
-        Read 	&#8594;
+        <Link href={`/story/${story.id}`} className='link-btn link-btn-dark-grey link-btn-small'> 
+          Read 	&#8594;
         </Link>
       </section>
+      {
+        reportFormOn === story.id? 
+        <ReportForm
+          reportType='story'
+          username={story.username}
+          contentId={story.id}
+          clearReport={() => { setReportFormOn(''); }}
+        />:
+        <></>
+      }
     </article>
   ));
+
 
   return (
     <section
