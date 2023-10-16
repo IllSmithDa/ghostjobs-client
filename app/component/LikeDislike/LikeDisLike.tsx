@@ -3,6 +3,7 @@ import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 import React, { useState,useEffect } from 'react'
 import './LikeDisLike.scss';
 import { axiosFetch } from '../Axios/axios';
+import { parseVal } from '@/app/_helper/numbers';
 
 interface FetchData {
   commentId: string,
@@ -106,7 +107,7 @@ export default function LikeDislike({
   return (
     <section className='like-dislike-container'>
       {
-        currentScore
+        parseVal(currentScore)
       }
       <FontAwesomeIcon 
         size='lg'

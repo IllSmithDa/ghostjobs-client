@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import './StoryReactions.scss';
 import { axiosFetch } from '../Axios/axios';
 import Loader from '../Loader/Loader';
+import { parseVal } from '@/app/_helper/numbers';
 
 
 const storyReactions = {'like': 0, 'heart': 0, 'misleading': 0, 'funny':0, 'spam': 0, 'angry': 0, 'confused': 0, 'dislike': 0, 'sad': 0};
@@ -106,7 +107,7 @@ export default function StoryReactions(
             style={{ color: myReaction === 'like' ? '#3366FF':'#fff'}}
             onClick={() => { handleReaction('like') }}
           />
-          <p>{allReactions.like}</p>
+          <p>{parseVal(allReactions.like)}</p>
         </li>
         <li>
           <FontAwesomeIcon
@@ -115,7 +116,7 @@ export default function StoryReactions(
             style={{ color: myReaction === 'heart' ? '#ee1111':'#fff'}}
             onClick={() => { handleReaction('heart') }}
           />
-          <p>{allReactions.heart}</p>
+          <p>{parseVal(allReactions.heart)}</p>
         </li>
         <li>
           <FontAwesomeIcon
@@ -124,7 +125,7 @@ export default function StoryReactions(
             style={{ color: myReaction === 'funny' ? '#eeee11':'#fff'}}
             onClick={() => { handleReaction('funny') }}  
           />
-          <p>{allReactions.funny}</p>
+          <p>{parseVal(allReactions.funny)}</p>
         </li>
         <li>
           <FontAwesomeIcon
@@ -133,7 +134,7 @@ export default function StoryReactions(
             style={{ color: myReaction === 'dislike' ? '#3366FF':'#fff'}}
             onClick={() => { handleReaction('dislike') }}    
           />
-          <p>{allReactions.dislike}</p>
+          <p>{parseVal(allReactions.dislike)}</p>
         </li>
         <li>
           <FontAwesomeIcon
@@ -142,7 +143,7 @@ export default function StoryReactions(
             style={{ color: myReaction === 'angry' ? '#DD6666':'#fff'}}
             onClick={() => { handleReaction('angry') }}    
           />
-          <p>{allReactions.angry}</p>
+          <p>{parseVal(allReactions.angry)}</p>
         </li>
         <li>
           <FontAwesomeIcon
@@ -151,7 +152,7 @@ export default function StoryReactions(
             style={{ color: myReaction === 'sad' ? '#6666FF':'#fff'}}
             onClick={() => { handleReaction('sad') }}  
           />
-          <p>{allReactions.sad}</p>
+          <p>{parseVal(allReactions.sad)}</p>
         </li>
       </ul>:
       <Loader />
