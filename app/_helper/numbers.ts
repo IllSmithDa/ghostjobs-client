@@ -3,8 +3,6 @@ export const parseVal = (n:number) => {
   let negVal = n < 0 ? '-': '';
   if (negVal === '-') n = Math.abs(n);
 
-
-
   if (n/1000000000 >= 1) {
     // turn the four digit numberin  a three digit number
     const digit = n - (Math.floor(n/1000000000) * 1000000000)
