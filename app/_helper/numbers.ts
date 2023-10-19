@@ -35,5 +35,5 @@ export const parseVal = (n:number) => {
     // checks if second var is value 0 which means it should have a decimal or the value after it
     return `${negVal}${Math.floor(n/1000)}${(secondDigit ? `.${secondDigit}`: '')}K`;
   }
-  return n;
+  return `${negVal}${n}`;
 }
