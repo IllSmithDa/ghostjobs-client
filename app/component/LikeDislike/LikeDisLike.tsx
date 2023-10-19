@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 import React, { useState,useEffect } from 'react'
-import { useDebounce } from 'use-debounce';
 import './LikeDisLike.scss';
 import { axiosFetch } from '../Axios/axios';
 import { parseVal } from '@/app/_helper/numbers';
@@ -31,8 +30,6 @@ export default function LikeDislike({
 }) {
   const [currentScore, setCurrentScore] = useState(score);
   const [currentUserScore, setCurrentUserScore] = useState(myScore);
-  const [mouseEvent, setMouseEvent] = useState(true);
-  const [fetchData, setFetchData] = useState<FetchData>();
   // console.log(username);
   const [err, setErr] = useState('');
   const updateScore = async (value: number) => {
@@ -115,22 +112,26 @@ export default function LikeDislike({
         className='reaction-icon'
         icon={faThumbsUp}
         style={{color: currentUserScore > 0 ? '#3366FF' : '#FFF'}}
-        onClick={() => useDebounce(async () => {
+        onClick={async () => {
           if (username) {
-            await updateScore(currentUserScore > 0 ? 0 : 1);
+            setTimeout(async () => {
+              await updateScore(currentUserScore > 0 ? 0 : 1);
+            }, 100)
           }
-        }, 1000)}
+        }}
       />
       <FontAwesomeIcon
         size='lg'
         className='reaction-icon thumbs-down'
         icon={faThumbsDown}
         style={{color:  currentUserScore < 0 ? '#3366FF' : '#FFF'}} 
-        onClick={() => useDebounce(async () => {
+        onClick={async () => {
           if (username) {
-            await updateScore(currentUserScore < 0 ? 0 : -1);
+            setTimeout(async () => {
+              await updateScore(currentUserScore < 0 ? 0 : -1);
+            }, 100)
           }
-        }, 1000)}
+        }}
       />
       {
         err ? 
