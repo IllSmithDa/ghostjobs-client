@@ -42,25 +42,21 @@ export default function StoryReactions(
       storyAuthor,
     }
     try {
-      console.log(data);
-      const result = await axiosFetch.post(`/api/story/reaction/create-reaction`, data)
-      if (result.status === 200) {
-        if (oldReaction === '') {
-          setNewReaction(false);
-          setAllReactions({
-            ...allReactions,
-            [reaction]: allReactions[reaction] + 1,
-          })
-        } else {
-          setAllReactions({
-            ...allReactions,
-            [reaction]: allReactions[reaction] + 1,
-            [oldReaction]: allReactions[oldReaction ?? ''] - 1,
-          })
-
-        }
-        setMyReaction(reaction);
+      if (oldReaction === '') {
+        setNewReaction(false);
+        setAllReactions({
+          ...allReactions,
+          [reaction]: allReactions[reaction] + 1,
+        })
+      } else {
+        setAllReactions({
+          ...allReactions,
+          [reaction]: allReactions[reaction] + 1,
+          [oldReaction]: allReactions[oldReaction ?? ''] - 1,
+        })
       }
+      setMyReaction(reaction);
+      await axiosFetch.post(`/api/story/reaction/create-reaction`, data)
       // console.log(result.data)
     } catch (err) {
       setErr((err as Error).message);
