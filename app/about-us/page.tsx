@@ -1,7 +1,7 @@
 import React from 'react'
 import './AboutUs.scss'
 import { ghostjobs } from '../testdata/testInfo'
-export default function page() {
+export default function AboutUs() {
   return (
     <section
       className='about-page'
@@ -13,7 +13,7 @@ export default function page() {
       <h2>What are some signs of Ghost Jobs?</h2>
       <>{ghostjobs.expandedInfo.map((info, index) => {
         return (
-        <p>{index + 1}. {info}</p>
+        <p key={index}>{index + 1}. {info}</p>
         )
       })}</>
     </section>
