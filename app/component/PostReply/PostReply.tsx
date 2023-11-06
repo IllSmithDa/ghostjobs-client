@@ -137,24 +137,21 @@ export default function PostReply({
       onSubmit={async(values) => {
         // alert('Form Submission activated')
         const { comment } = values;
-        console.log(`${username}: ${comment}`);
+        // https://dev.to/rahmanfadhil/how-to-generate-unique-id-in-javascript-1b13
+        const newId = Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
         try {
-          const data = {
-            commentId,
-            replyUsername: username,
-            replyText: comment,
+          const data: Reply = {
+            id: newId.toString(),
+            commentIdRef: commentId,
+            username,
             userImage: '',
+            score:0,
+            replyText: comment,
             storyTitle,
             storyId,
-            score:0,
           }
-          const res = await axiosFetch.put('/api/story/comment/add-reply', data)
-          if (res.status === 200) {
-            values.comment = '';
-            const newReply:Reply = res.data.updatedReply;
-            // console.log(newReply);
-            updateReplies(newReply);
-          }
+          updateReplies(data);
+          await axiosFetch.put('/api/story/comment/add-reply', data)
         } catch (err) {
           setError((err as Error).message);
         }

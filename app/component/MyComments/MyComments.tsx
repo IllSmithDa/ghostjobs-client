@@ -122,6 +122,12 @@ export default function MyComments({ username } : {
         <></>
       }
       {
+        initloading ? 
+        <section className='loader-container'>
+          <Loader />
+        </section>:<></>
+      }
+      {
         !comments.length && !initloading? 
         <article className='empty-story'>
           <h2>No Comments made yet</h2>

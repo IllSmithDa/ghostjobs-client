@@ -26,7 +26,7 @@ export default function Login({setLoader}:{ setLoader:(state: string) => void}) 
 
   const renderForm = ({ 
     values,
-    errors, 
+    errors,        
     handleSubmit,
   }: {
     values: any,

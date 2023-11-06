@@ -5,6 +5,7 @@ import { axiosFetch } from '../Axios/axios';
 import { StoryReaction } from '../Types';
 import './MyReactions.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Loader from '../Loader/Loader';
 
 
 const storyReactions:{[key: string]: IconDefinition} = {like: faThumbsUp, heart: faHeart, funny:faLaugh, angry: faAngry, dislike: faThumbsDown, sad: faFaceSadCry};
@@ -63,6 +64,12 @@ export default function MyReactions({
  
   return (
     <section className='my-reactions-cont'>
+            {
+        initLoading ? 
+        <section className='loader-container'>
+          <Loader />
+        </section>:<></>
+      }
       {
         !reactions.length && !initLoading? 
         <article className='empty-reaction'>
