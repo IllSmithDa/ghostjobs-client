@@ -14,25 +14,7 @@ import { useRouter } from 'next/navigation';
 export default function Profile() {
   const { push } = useRouter();
   const { username } = useSelector((res:AuthState) => res.userData.user);
-  const [stories, setStories] = useState<Story[]>([]);
   const [selectTab, setSelectTab] = useState<'story'|'comments'|'reactions'|'loading'>('loading')
-
-  
-  const fetchMyStories = (username: string) => {
-    axiosFetch.get(`/api/story/stories/${username}`)
-      .then((res) => {
-        console.log(res.data.stories);
-        setStories(res.data.stories);
-        setSelectTab('story');
-      })
-      .catch((err) => {
-        return {err: (err as Error).message, success: false };
-      })
-  }
-
-  const updateStories = (stories: Story[]) => {
-    setStories([...stories]);
-  }
 
   const renderTab = () => {
     if (selectTab === 'story') {

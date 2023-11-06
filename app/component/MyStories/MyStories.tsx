@@ -59,12 +59,11 @@ export default function MyStories() {
         try {
           setInitLoading(true);
           const res = await axiosFetch.get(`/api/story/stories/${username}/${offset}/${limit}`);
-          setOffset(offset => offset + limit);
           setStories([...res.data.stories]);
+          setOffset(offset => offset + limit);
+          setInitLoading(false);
         } catch (err) {
           setErr((err as Error).message)
-        } finally {
-          setInitLoading(false);
         }
       }
       fetchMyStories();
@@ -158,6 +157,12 @@ export default function MyStories() {
             updateStories={updateStories}/>
         </ModalAll>:
         <></>
+      }
+      {
+        initLoading ? 
+        <section className='loader-container'>
+          <Loader />
+        </section>:<></>
       }
       {
         !stories.length && !initLoading? 

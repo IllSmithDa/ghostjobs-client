@@ -38,7 +38,7 @@ export default function Replies(
 }) {
   const [allReplies, setAllReplies] = useState(replies);
   const [replyCount, setReplyCount] = useState(allReplies.length);
-  const [mode, setMode] = useState<'standard' | 'clicked'>('standard')
+  const [hiddenReplies, setHiddenReplies] = useState(true);
   const [shownReplies, setShownReplies] = useState<Reply []>([]);
   const [currentCount, setCurrentCount] = useState(0);
   const [endReached, setEndReached] = useState(false);
@@ -52,19 +52,15 @@ export default function Replies(
     setCurrentCount(currentCount => currentCount + offset);
 
     if (currentCount + offset >= replyCount) setEndReached(true);
-    if (mode === 'standard') setMode('clicked');
+    if (hiddenReplies) setHiddenReplies(false);
   }
   const updateReplies = (reply: Reply) => {
     // console.log(reply)
     setAllReplies([...allReplies, reply]);
-    const tempArr = replies.slice(currentCount);
-
+    setShownReplies([...allReplies, reply]);
     setReplyCount(replyCount => replyCount + 1)
-    setShownReplies([...shownReplies, ...tempArr, reply]);
-    setCurrentCount(allReplies.length + 10);
-    setMode(
-      'clicked'
-    );
+    setCurrentCount(allReplies.length + 1);
+    setHiddenReplies(false);
   }
   const cancelReply = () => {
     setPostReply(false);
@@ -72,9 +68,7 @@ export default function Replies(
   const hideReplies = () => {
     setShownReplies([]);
     setCurrentCount(0);
-    setMode(
-      'standard'
-    );
+    setHiddenReplies(true);
   }
   //https://masteringjs.io/tutorials/fundamentals/foreach-break
   const checkCommentScore = (commentId: string) => {
@@ -90,13 +84,15 @@ export default function Replies(
     })
     return score;
   }
+
   useEffect(() => {
     if (setRepliesoff) {
       setPostReply(false);
     }
   }, [setRepliesoff])
+
   const renderMode = () => {
-    if (mode === 'standard') {
+    if (hiddenReplies) {
       return <>{
         replyCount == 1 ?
         <button
@@ -112,7 +108,7 @@ export default function Replies(
           {replyCount} replies
         </button>   
       }</>
-    } else if (mode === 'clicked') {
+    } else {
       return (
         <>
           {
@@ -175,10 +171,6 @@ export default function Replies(
             Hide replies
           </button>
         </>
-      )
-    } else {
-      return (
-        <></>
       )
     }
   }

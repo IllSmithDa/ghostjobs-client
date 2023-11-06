@@ -155,8 +155,6 @@ export default function EditStories({
           isError = true;
         } else {
           setTitleErr('');
-
-          
         }
 
         if (story.length < 200 || story.length > 10000) {
